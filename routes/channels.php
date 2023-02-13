@@ -20,3 +20,7 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 Broadcast::channel('private.log', function ($user, $id){
     return true;
 });
+
+Broadcast::channel('private.servico', function ($user, $id){
+    return true;
+});

@@ -1,0 +1,31 @@
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #003642;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #003642;
+    border-radius: 100px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.pagination {
+    padding: 2rem;
+    color: #003642;
+}
+
+.page-link {
+    background-color: #003642;
+    color: white;
+    border: 2px solid #005163;
+    border-left: 2px solid transparent;
+}
+
+.disabled > .page-link{
+    background-color: #003642;
+    color: rgb(168, 168, 168);
+    border: 2px solid #003642;
+}
