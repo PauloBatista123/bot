@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NovoLogEvent;
 use App\Models\Log;
 use Exception;
 use Illuminate\Http\Request;
@@ -16,14 +17,16 @@ class LogController extends Controller
         $this->log = $log;
     }
 
-    public function salvar(Request $request) 
+    public function salvar(Request $request)
     {
         try{
-            $this->log->create([
-                'mensagem' => $request->get('Chave'),
+            $log = $this->log->create([
+                'mensagem' => $request->get('mensagem'),
                 'bot' => $request->get('bot')
             ]);
-            
+
+            event(new NovoLogEvent($log));
+
             return response()->json([
                 'mensagem' => 'Ok!'
             ], 200);
@@ -32,7 +35,7 @@ class LogController extends Controller
                 'Erro' => $e->getMessage()
             ], 404);
         }
-        
+
     }
 
     public function dashboard()
