@@ -20,10 +20,15 @@
 
     <div class="my-5">
         <div class="d-flex justify-content-center align-items-center">
-            <i class="fa-solid fa-robot" style="font-size: 3rem; color: white;"></i>
+            <i class="fa-solid fa-robot" style="font-size: 5rem; color: white;"></i>
         </div>
         <div class="text-center">
-            <img src="{{asset('imgs/SicoobLogo.png')}}" height="110" width="110" class="rounded img-fluid" alt="...">
+            <img src="{{asset('imgs/SicoobLogo.png')}}" height="210" width="210" class="rounded img-fluid" alt="...">
+        </div>
+        <div class="m-0">
+            <div class="font-weight-bolder text-sm-center text-white">
+                <p class="text-bold">{{"<>UTI 2023</>"}}</p>
+            </div>
         </div>
     </div>
     <div class="row m-3">
@@ -32,11 +37,7 @@
             @livewire('servico.index', ,key('servico.index'))
         </div>
     </div>
-    <div class="m-0">
-        <div class="font-weight-bolder text-sm-center text-white">
-            <p class="text-bold">{{"<>UTI 2023</>"}}</p>
-        </div>
-    </div>
+
 
     <script src="{{asset('js/servico.js') }}"></script>
     <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
