@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Servico;
 
+use App\Models\Log;
 use App\Models\Servico;
 use Carbon\Carbon;
 use Livewire\Component;
@@ -21,8 +22,11 @@ class Contador extends Component
         ->whereDate('created_at', Carbon::now()->format('Y-m-d'))
         ->count();
 
+        $numberOfErrors = Log::whereDate('created_at', Carbon::now()->format('Y-m-d'))->count();
+
         return view('livewire.servico.contador', [
-            'numberOfServices' => $numberOfServices
+            'numberOfServices' => $numberOfServices,
+            'numberOfErrors' => $numberOfErrors,
         ]);
     }
 }

@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     @livewireStyles
 </head>
-<body class="container" style="background: linear-gradient(90deg, rgba(3,60,69,1) 0%, rgba(3,60,69,1) 40%, rgba(3,60,69,1) 100%);">
+<body class="container" style="background-image: url({{asset('imgs/fundo.png')}})">
 
     <div class="row my-5">
         <div class="d-flex justify-content-center align-items-center">

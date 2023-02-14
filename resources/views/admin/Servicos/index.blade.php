@@ -11,10 +11,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @livewireStyles
 </head>
-<body class="container vw-100"
-    style="background: linear-gradient(90deg, rgba(0,54,66,1) 0%, rgba(0,54,66,1) 40%, rgba(0,54,66,1) 100%);">
+<body style="
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url({{asset('imgs/fundo.png')}});
+    ">
 
-    <div class="row my-5">
+
+    <div class="my-5">
         <div class="d-flex justify-content-center align-items-center">
             <i class="fa-solid fa-robot" style="font-size: 3rem; color: white;"></i>
         </div>
