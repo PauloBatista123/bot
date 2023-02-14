@@ -11,7 +11,7 @@
     <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
     @livewireStyles
 </head>
-<body class="container" style="background: linear-gradient(90deg, rgba(3,60,69,1) 0%, rgba(3,60,69,1) 40%, rgba(3,60,69,1) 100%);">
+<body class="container" style="background-image: url({{asset('imgs/fundo.png')}})">
 
     <div class="row my-5">
         <div class="d-flex justify-content-center align-items-center">

@@ -2,10 +2,10 @@
     @forelse ($this->logs as $log)
     @if ($loop->index === 0)
     <div style="
-        background: linear-gradient(90deg, rgba(4,78,89,1) 0%, rgba(4,78,89,1) 40%, rgba(4,78,89,1) 100%);
+        background: #F1F1E6;
         box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
-        color: white;
-    " class="alert text-center rounded shadow-lg p-3 mb-5" role="alert">
+        color: #49479d;
+    " class="alert text-center rounded shadow-lg" role="alert">
         <div class="d-flex flex-row justify-content-center align-items-center">
             <i class="fa-regular fa-bell fa-2xl fa-bell fa-shake"></i>
             <h2 class="alert-heading p-2">Atenção!</h2>
@@ -18,8 +18,8 @@
     </div>
     @else
     <div style="
-       background: #005E62;
-       color: #F1F1E6;
+       background: #F1F1E6;
+       color: #49479d;
     " class="alert text-center" role="alert">
         <p class="fs-3 font-weight-light">{{$log->mensagem}}</p>
         <hr>
