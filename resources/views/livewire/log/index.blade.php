@@ -38,12 +38,4 @@
             </div>
         </div>
     @endforelse
-
-    <script>
-        window.addEventListener('dispatch-sound', event => {
-            alert('teste');
-            var audio = new Audio("{{asset('alert.mp3')}}");
-            audio.play();
-        });
-    </script>
 </div>
