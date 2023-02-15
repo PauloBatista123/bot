@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GerenteController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\ServicoController;
 use Illuminate\Support\Facades\Route;
@@ -21,3 +22,5 @@ Route::get('/', function () {
 
 Route::get('/logs', [LogController::class, 'dashboard'])->name('dashboard.index');
 Route::get('/servicos', [ServicoController::class, 'index'])->name('servico.index');
+
+Route::get('/gerentes', [GerenteController::class, 'index'])->name('gerente.index');
