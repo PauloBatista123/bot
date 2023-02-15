@@ -39,7 +39,7 @@ class NovoLogEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('private.log');
+        return new Channel('private.servico');
     }
 
     /**
