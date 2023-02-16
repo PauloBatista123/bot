@@ -29,11 +29,11 @@
                     <i class="fa-solid fa-users"></i>
                     <span>Usuários</span>
                 </a>
-                <a class="nav-item">
+                <a class="nav-item" href="{{route('servico.index')}}">
                     <i class="fa-solid fa-robot"></i>
                     <span>Serviços</span>
                 </a>
-                <a class="nav-item active">
+                <a class="nav-item active" href="{{route('gerente.index')}}">
                     <i class="fa-solid fa-id-badge"></i>
                     <span>Gerentes</span>
                 </a>
