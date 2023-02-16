@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -41,4 +42,71 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function papeis(){
+
+        return $this->belongsToMany(Perfil::class);
+    }
+
+    public function permissoes(){
+
+        return $this->belongsToMany(Permissao::class);
+    }
+
+    public function adicionaPerfil($perfil){
+
+        if (is_string($perfil)) {
+            return $this->papeis()->save(
+                Perfil::where('nome', '=', $perfil)->firstOrFail()
+
+            );
+        }
+        return $this->papeis()->save(
+            Perfil::where('nome', '=', $perfil->nome)->firstOrFail()
+
+        );
+    }
+
+    public function removePerfil($perfil){
+        if (is_string($perfil)) {
+            return $this->papeis()->detach(
+                Perfil::where('nome', '=', $perfil)->firstOrFail()
+
+            );
+        }
+        return $this->papeis()->detach(
+            Perfil::where('nome', '=', $perfil->nome)->firstOrFail()
+
+        );
+    }
+
+    public function existePerfil($perfil){
+
+        if (is_string($perfil)) {
+            return $this->papeis->contains('nome', $perfil);
+        }
+
+        return $perfil->intersect($this->papeis)->count();
+
+    }
+
+    public static function existePermissao($permissao, $perfil){
+
+        if (DB::table('perfil_permissao')->where('permissao_id', $permissao)->where('perfil_id', $perfil)->count()) {
+
+            return true;
+
+        }else{
+            return false;
+        }
+
+    }
+
+    public function existeAdmin(){
+
+        return $this->existePerfil('admin');
+
+    }
+
+
 }

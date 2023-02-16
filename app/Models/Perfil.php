@@ -8,4 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Perfil extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['nome', 'descricao'];
+
+    protected $table = 'perfils';
+
+    public function permissoes(){
+
+        return $this->belongsToMany(Permissao::class);
+    }
+
+    public function adicionarPermissao($permissao){
+        return $this->permissoes()->save($permissao);
+    }
+
+    public function removerPermissao($permissao){
+        return $this->permissoes()->detach($permissao);
+    }
 }

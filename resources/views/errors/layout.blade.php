@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Administração</title>
+    <title>Administração - @yield('title')</title>
 
     <link rel="icon" href="{{asset('imgs/favicon .png')}}" />
     <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
@@ -18,24 +18,15 @@
     </div>
 
     <div class="container">
-        @yield('content')
+        <div class="row">
+            <div class="fs-1 text-white d-flex flex-column justify-content-center align-items-center gap-3">
+                <i class="fa-solid fa-skull-crossbones fa-fade" style="font-size: 12rem;"></i>
+                @yield('message')
+            </div>
+        </div>
     </div>
-
     <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>
 
-    @livewireScripts
-    @stack('scripts')
-
-    {{-- instancia do modal off canvas e listeners--}}
-    <script>
-        let bsOffcanvas = new bootstrap.Offcanvas('#offcanvasRightEdit');
-
-        window.addEventListener('close-modal-editar', event => {
-            bsOffcanvas.hide();
-        })
-    </script>
-
-</body>
+    </body>
 </html>
+

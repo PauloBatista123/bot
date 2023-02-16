@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Illuminate\Http\Client\Response;
+use Illuminate\Support\Facades\Auth;
 
 class Adicionar extends Component
 {

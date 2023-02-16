@@ -11,8 +11,12 @@ use Illuminate\Support\Facades\DB;
 
 class ServicoController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        if($request->user()->cannot('view-servico', 'robo_pld')) {
+            abort(403);
+        }
+
         return view('admin.Servicos.index');
     }
 
@@ -45,5 +49,14 @@ class ServicoController extends Controller
 
             DB::rollBack();
         }
+    }
+
+    public function pld(Request $request)
+    {
+        if($request->user()->cannot('show-servico', 'listar_servico')) {
+            abort(403);
+        }
+
+        return view('admin.Servicos.pld');
     }
 }

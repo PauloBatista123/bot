@@ -10,12 +10,16 @@
                         <span>PA {{$item->pa}}</span>
                     </div>
                     <div class="text-sicoob">
+                        @if(Auth::user()->can('delete-gerente', 'deletar_gerente'))
                         <button class="btn btn-sm btn-outline-success" wire:click='confirmDelete({{$item->id}})'>
                             <i class="fa-regular fa-trash-can"></i>
                         </button>
+                        @endif
+                        @if(Auth::user()->can('update-gerente', 'alterar_gerente'))
                         <button class="btn btn-sm btn-outline-primary" wire:click="$emit('editar', {{$item->id}})" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightEdit" aria-controls="offcanvasRightEdit">
                             <i class="fa-regular fa-pen-to-square"></i>
                         </button>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -19,6 +19,7 @@
     </div>
 
 
+    @if(Auth::user()->can('create-gerente', 'criar_gerente'))
     <div class="offcanvas offcanvas-end" data-bs-backdrop="static"  tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasRightLabel">Adicionar Novo Gerente</h5>
@@ -28,7 +29,9 @@
             @livewire('gerente.adicionar', 'gerente.adicionar')
         </div>
     </div>
+    @endif
 
+    @if(Auth::user()->can('update-gerente', 'alterar_gerente'))
     <div class="offcanvas offcanvas-end" data-bs-backdrop="static"  tabindex="-1" id="offcanvasRightEdit" aria-labelledby="offcanvasRightEditLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasRightEdit">Editar Gerente</h5>
@@ -38,5 +41,6 @@
             @livewire('gerente.editar', 'gerente.editar')
         </div>
     </div>
+    @endif
 
 @endsection

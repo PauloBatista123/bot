@@ -51,3 +51,19 @@ nav {
 .text-sicoob {
     color:#033c45;
 }
+
+.dropdown {
+    border-left: 1px solid rgba(255, 255, 255, 0.644);
+    padding-left: 1rem;
+}
+
+.card-hover {
+    text-decoration: none;
+    color: #033c45;
+
+    transition: all 0.2s;
+}
+
+.card-hover:hover {
+    filter: opacity(92%);
+}

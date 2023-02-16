@@ -8,8 +8,12 @@ use Illuminate\Http\Request;
 
 class GerenteController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        if($request->user()->cannot('view-gerente', 'listar_gerente')) {
+            abort(403);
+        }
+
         return view('admin.Gerentes.index');
     }
 
