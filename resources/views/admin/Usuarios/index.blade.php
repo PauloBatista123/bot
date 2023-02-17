@@ -19,7 +19,7 @@
     </div>
 
 
-    @if(Auth::user()->can('create-usuario', 'criar_usuarios'))
+    @if(Auth::user()->can('create-usuario', 'criar_usuario'))
     <div class="offcanvas offcanvas-end" data-bs-backdrop="static"  tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasRightLabel">Adicionar Novo Usuário</h5>
@@ -31,7 +31,7 @@
     </div>
     @endif
 
-    @if(Auth::user()->can('update-usuario', 'alterar_usuarios'))
+    @if(Auth::user()->can('update-usuario', 'alterar_usuario'))
     <div class="offcanvas offcanvas-end" data-bs-backdrop="static"  tabindex="-1" id="offcanvasRightEdit" aria-labelledby="offcanvasRightEditLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasRightEdit">Editar Usuário</h5>

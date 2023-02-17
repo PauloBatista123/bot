@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\User;
+use App\Models\Permissao;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class UsuarioPolicy
@@ -18,7 +19,7 @@ class UsuarioPolicy
      */
     public function viewAny(User $user, string $permissao)
     {
-        return $user->existePermissao($permissao, $user->papeis) || $user->existeAdmin();
+        return $user->existePermissao(Permissao::where('nome', $permissao)->first(), $user->perfis[0]) || $user->existeAdmin();
     }
 
     /**
@@ -42,7 +43,7 @@ class UsuarioPolicy
      */
     public function create(User $user, string $permissao)
     {
-        return $user->existePermissao($permissao, $user->papeis) || $user->existeAdmin();
+        return $user->existePermissao(Permissao::where('nome', $permissao)->first(), $user->perfis[0]) || $user->existeAdmin();
     }
 
     /**
@@ -54,7 +55,7 @@ class UsuarioPolicy
      */
     public function update(User $user, string $permissao)
     {
-        return $user->existePermissao($permissao, $user->papeis) || $user->existeAdmin();
+        return $user->existePermissao(Permissao::where('nome', $permissao)->first(), $user->perfis[0]) || $user->existeAdmin();
     }
 
     /**
@@ -66,7 +67,7 @@ class UsuarioPolicy
      */
     public function delete(User $user, string $permissao)
     {
-        return $user->existePermissao($permissao, $user->papeis) || $user->existeAdmin();
+        return $user->existePermissao(Permissao::where('nome', $permissao)->first(), $user->perfis[0]) || $user->existeAdmin();
     }
 
     /**

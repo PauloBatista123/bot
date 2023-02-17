@@ -90,14 +90,18 @@ class User extends Authenticatable
 
     }
 
-    public static function existePermissao($permissao, $perfil){
+    public function existePermissao($permissao, $perfil): bool {
 
-        if (DB::table('perfil_permissao')->where('permissao_id', $permissao)->where('perfil_id', $perfil)->count()) {
+        $verify = DB::table('perfil_permissao')->where([['permissao_id', '=', $permissao->id],['perfil_id', '=', $perfil->id]])->get();
+
+        if ($verify->count()) {
 
             return true;
 
         }else{
+
             return false;
+
         }
 
     }

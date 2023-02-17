@@ -2,16 +2,16 @@
 
 namespace App\Policies;
 
-use App\Models\Gerente;
+use App\Models\Perfil;
 use App\Models\Permissao;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class GerentePolicy
+class PerfilPolicy
 {
     use HandlesAuthorization;
 
-    /**
+     /**
      * Determine whether the user can view any models.
      *
      * @param  \App\Models\User  $user
@@ -26,10 +26,10 @@ class GerentePolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Gerente  $gerente
+     * @param  \App\Models\Perfil  $gerente
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Gerente $gerente)
+    public function view(User $user, Perfil $gerente)
     {
 
     }
@@ -74,10 +74,10 @@ class GerentePolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Gerente  $gerente
+     * @param  \App\Models\Perfil  $gerente
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Gerente $gerente)
+    public function restore(User $user, Perfil $gerente)
     {
 
     }
@@ -86,16 +86,11 @@ class GerentePolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Gerente  $gerente
+     * @param  \App\Models\Perfil  $gerente
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Gerente $gerente)
+    public function forceDelete(User $user, Perfil $gerente)
     {
         //
-    }
-
-    public function getPermissoes()
-    {
-        return Permissao::with('perfis')->get();
     }
 }

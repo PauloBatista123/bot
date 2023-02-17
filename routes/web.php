@@ -18,11 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::group(['middleware'=>'auth'], function(){
+    Route::get('/', [UserController::class, 'home'])->name('home');
     Route::get('/logs', [LogController::class, 'dashboard'])->name('dashboard.index');
     Route::get('/servicos', [ServicoController::class, 'index'])->name('servico.index');
     Route::get('/servicos/pld', [ServicoController::class, 'pld'])->name('servico.pld');

@@ -44,8 +44,17 @@ class UserController extends Controller
         return redirect()->route('login.index');
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        if($request->user()->cannot('view-usuario', 'listar_usuario')) {
+            abort(403);
+        }
+
         return view('admin.Usuarios.index');
+    }
+
+    public function home()
+    {
+        return view('admin.home');
     }
 }

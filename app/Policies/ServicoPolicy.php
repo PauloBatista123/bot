@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Models\Permissao;
 use App\Models\Servico;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
@@ -19,7 +20,7 @@ class ServicoPolicy
      */
     public function viewAny(User $user, string $permissao)
     {
-        return $user->existePermissao($permissao, $user->papeis) || $user->existeAdmin();
+        return $user->existePermissao(Permissao::where('nome', $permissao)->first(), $user->perfis[0]) || $user->existeAdmin();
     }
 
     /**
@@ -31,7 +32,7 @@ class ServicoPolicy
      */
     public function view(User $user, string $permissao)
     {
-        return $user->existePermissao($permissao, $user->papeis) || $user->existeAdmin();
+        return $user->existePermissao(Permissao::where('nome', $permissao)->first(), $user->perfis[0]) || $user->existeAdmin();
     }
 
     /**
