@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GerenteController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\ServicoController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,11 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/servicos/pld', [ServicoController::class, 'pld'])->name('servico.pld');
 
     Route::get('/gerentes', [GerenteController::class, 'index'])->name('gerente.index');
+    Route::get('/usuarios', [UserController::class, 'index'])->name('usuarios.index');
+
+    Route::get('/usuarios/perfil', [PerfilController::class, 'index'])->name('perfil.index');
+    Route::get('cadastro/papel/permissao/{id}', [PerfilController::class, 'permissao'])->name('perfil.permissao');
+
     Route::get('/login/logout', [UserController::class, 'logout'])->name('login.logout');
 });
 

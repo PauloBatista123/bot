@@ -14,6 +14,9 @@ class Index extends Component
     use LivewireAlert;
 
     public $deletarId;
+    public $filtro_nome;
+    public $filtro_celular;
+    public $filtro_pa;
 
     protected $paginationTheme = 'simple-bootstrap';
 
@@ -21,11 +24,38 @@ class Index extends Component
 
     public function render()
     {
-        $gerentes = Gerente::paginate(10);
+
+        $gerentes = Gerente::
+                            when($this->filtro_nome, function ($query) {
+                                $query->where('nome', 'like', '%'.$this->filtro_nome.'%');
+                            })
+                            ->when($this->filtro_celular, function ($query) {
+                                $query->where('celular', 'like', '%'.$this->filtro_celular.'%');
+                            })
+                            ->when($this->filtro_pa, function ($query) {
+                                $query->where('pa', 'like', '%'.$this->filtro_pa.'%');
+                            })
+                            ->orderBy('nome')
+                            ->paginate(10);
 
         return view('livewire.gerente.index', [
             'gerentes' => $gerentes
         ]);
+    }
+
+    public function updatingFiltroNome()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingFiltroPa()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingFiltroCelular()
+    {
+        $this->resetPage();
     }
 
     public function deletar()
@@ -64,5 +94,10 @@ class Index extends Component
             'confirmButtonText' => 'Deletar',
         ]);
 
+    }
+
+    public function resetar_filtro()
+    {
+        $this->reset(['filtro_nome', 'filtro_celular', 'filtro_pa']);
     }
 }

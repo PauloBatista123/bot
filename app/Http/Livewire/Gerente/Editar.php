@@ -27,7 +27,7 @@ class Editar extends Component
     {
         try{
 
-            $this->gerente = Gerente::findOrFail($id);
+            $this->gerente = Gerente::find($id);
 
             $this->nome = $this->gerente->nome;
             $this->celular = $this->gerente->celular;

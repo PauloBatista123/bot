@@ -43,7 +43,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function papeis(){
+    public function perfis(){
 
         return $this->belongsToMany(Perfil::class);
     }
@@ -56,12 +56,12 @@ class User extends Authenticatable
     public function adicionaPerfil($perfil){
 
         if (is_string($perfil)) {
-            return $this->papeis()->save(
+            return $this->perfis()->save(
                 Perfil::where('nome', '=', $perfil)->firstOrFail()
 
             );
         }
-        return $this->papeis()->save(
+        return $this->perfis()->save(
             Perfil::where('nome', '=', $perfil->nome)->firstOrFail()
 
         );
@@ -69,12 +69,12 @@ class User extends Authenticatable
 
     public function removePerfil($perfil){
         if (is_string($perfil)) {
-            return $this->papeis()->detach(
+            return $this->perfis()->detach(
                 Perfil::where('nome', '=', $perfil)->firstOrFail()
 
             );
         }
-        return $this->papeis()->detach(
+        return $this->perfis()->detach(
             Perfil::where('nome', '=', $perfil->nome)->firstOrFail()
 
         );
@@ -83,10 +83,10 @@ class User extends Authenticatable
     public function existePerfil($perfil){
 
         if (is_string($perfil)) {
-            return $this->papeis->contains('nome', $perfil);
+            return $this->perfis->contains('nome', $perfil);
         }
 
-        return $perfil->intersect($this->papeis)->count();
+        return $perfil->intersect($this->perfis)->count();
 
     }
 

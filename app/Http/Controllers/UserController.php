@@ -16,7 +16,7 @@ class UserController extends Controller
 
         if (Auth::attempt(['email'=>$dados['email'], 'password'=>$dados['password']])) {
 
-            if(!Auth::user()->papeis()->count()){
+            if(!Auth::user()->perfis()->count()){
                 session()->flash('mensagem', ['msg'=>'O usuário não possui perfil. Entre em contato com administrador', 'class'=>'red white-text',  'title' => 'Erro!!', 'icon' => 'info']);
 
                 return redirect()->route('login.index');
@@ -42,5 +42,10 @@ class UserController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('login.index');
+    }
+
+    public function index()
+    {
+        return view('admin.Usuarios.index');
     }
 }

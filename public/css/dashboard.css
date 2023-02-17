@@ -67,3 +67,28 @@ nav {
 .card-hover:hover {
     filter: opacity(92%);
 }
+
+.input-filtro, .input-filtro ~ label {
+    background-color: transparent;
+    padding: 1rem;
+    color: white;
+}
+
+.input-filtro:focus, .input-filtro ~ label {
+    background-color: transparent;
+    color: white;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #003642;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0c4f5c;
+    border-radius: 100px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}

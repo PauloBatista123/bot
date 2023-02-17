@@ -29,13 +29,7 @@
     @stack('scripts')
 
     {{-- instancia do modal off canvas e listeners--}}
-    <script>
-        let bsOffcanvas = new bootstrap.Offcanvas('#offcanvasRightEdit');
 
-        window.addEventListener('close-modal-editar', event => {
-            bsOffcanvas.hide();
-        })
-    </script>
 
 </body>
 </html>

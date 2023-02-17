@@ -10,7 +10,7 @@
             <i class="fa-solid fa-house"></i>
             <span>Início</span>
         </a>
-        <a class="nav-item">
+        <a class="nav-item @if($request->route()->getName() == 'usuarios.index') active  @endif" href="{{route('usuarios.index')}}">
             <i class="fa-solid fa-users"></i>
             <span>Usuários</span>
         </a>
@@ -22,7 +22,7 @@
             <i class="fa-solid fa-id-badge"></i>
             <span>Gerentes</span>
         </a>
-        <a class="nav-item">
+        <a class="nav-item @if($request->route()->getName() == 'perfil.index') active  @endif" href="{{route('perfil.index')}}">
             <i class="fa-solid fa-user-lock"></i>
             <span>Perfil</span>
         </a>

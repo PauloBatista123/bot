@@ -9,6 +9,7 @@ use App\Models\Permissao;
 use App\Models\Servico;
 use App\Policies\GerentePolicy;
 use App\Policies\ServicoPolicy;
+use App\Policies\UsuarioPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -39,7 +40,11 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('delete-gerente', [GerentePolicy::class, 'delete']);
 
         Gate::define('view-servico', [ServicoPolicy::class, 'viewAny']);
-        Gate::define('show-servico', [ServicoPolicy::class, 'show']);
+        Gate::define('show-servico', [ServicoPolicy::class, 'view']);
+
+        Gate::define('delete-usuario', [UsuarioPolicy::class, 'delete']);
+        Gate::define('create-usuario', [UsuarioPolicy::class, 'create']);
+        Gate::define('update-usuario', [UsuarioPolicy::class, 'update']);
     }
 
 
