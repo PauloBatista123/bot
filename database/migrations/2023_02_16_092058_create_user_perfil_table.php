@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_perfil', function (Blueprint $table) {
+        Schema::create('perfil_user', function (Blueprint $table) {
             $table->unsignedInteger('perfil_id');
             $table->unsignedInteger('user_id');
 
