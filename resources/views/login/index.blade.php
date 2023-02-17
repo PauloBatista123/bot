@@ -16,54 +16,36 @@
   <!-- BEGIN: Body-->
   <body class="bg-gradient-primary sidebar-toggled">
 
-    <div class="container">
+    <div class="container h-100">
 
         <!-- Outer Row -->
-        <div class="row justify-content-center">
+        <div class="row d-flex justify-content-center align-content-center h-100">
 
-            <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="col-xl-10 col-lg-12 col-md-9 mx-auto">
 
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
+                <div class="card o-hidden border-0 shadow-lg my-5 rounded-3">
+                    <div class="card-body p-0 bg-white text-center rounded-3">
+                        <img src="{{asset('imgs/ARABOT.png')}}" alt="logo" class="pt-4">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Autenticação</h1>
+                                        <h1 class="small text-gray-900 mb-4 text-sicoob">Autenticação</h1>
                                     </div>
                                     <form class="form form-vertical" action="{{route('login.logar')}}" method="post">
                                       {{ csrf_field() }}
-                                      <div class="form-body">
-                                        <div class="row">
-                                          <div class="col-12">
-                                            <div class="form-group">
-                                              <label for="email-id-icon">Email</label>
-                                              <div class="position-relative has-icon-left">
-                                                <input type="email" class="form-control" name="email"  id="email" placeholder="Digite seu email">
-                                                <div class="form-control-position">
-                                                  <i style="top: 8px" class="bx bx-mail-send"></i>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div class="row">
-                                          <div class="col-12">
-                                            <div class="form-group">
-                                              <label for="password-id-icon">Senha</label>
-                                              <div class="position-relative has-icon-left">
-                                                <input type="password" class="form-control" name="password"  id="password" placeholder="Digite sua senha">
-                                                <div class="form-control-position">
-                                                  <i style="top: 8px" class="bx bx-lock"></i>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
+                                      <div class="form-floating mb-3">
+                                        <input type="email" class="form-control" name="email"  id="email" placeholder="Digite seu email">
+                                        <label for="email">Email</label>
                                       </div>
-                                        <button type="submit" class="btn btn-primary glow w-100 position-relative">Login <i
-                                                class="bx bx-right-arrow-alt"></i></button>
+                                      <div class="form-floating mb-3">
+                                        <input type="password" class="form-control" name="password"  id="password" placeholder="Digite sua senha">
+                                        <label for="password">Senha</label>
+                                      </div>
+                                        <button type="submit" class="btn btn-success glow w-100 position-relative">Login <i
+                                                class="bx bx-right-arrow-alt"></i>
+                                        </button>
                                     </form>
                                 </div>
                             </div>
