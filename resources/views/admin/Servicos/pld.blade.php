@@ -39,9 +39,7 @@
     </div>
 
 
-    @push('scripts')
-        <script src="{{asset('js/servico.js') }}"></script>
-    @endpush
+    <script src="{{asset('js/servico.js') }}"></script>
     @livewireScripts
 </body>
 </html>
