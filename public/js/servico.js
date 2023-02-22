@@ -75706,20 +75706,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var channel = window.Echo.channel('private.servico');
-
-// const player = new Player("https://cdn.freesound.org/previews/674/674807_14714786-lq.mp3").toDestination();
-
-// loaded().then(() => {
-//     console.log("Loaded");
-// });
-
+var player = new tone__WEBPACK_IMPORTED_MODULE_1__.Player("https://cdn.freesound.org/previews/674/674807_14714786-lq.mp3").toDestination();
+(0,tone__WEBPACK_IMPORTED_MODULE_1__.loaded)().then(function () {
+  console.log("Loaded");
+});
 channel.subscribed(function () {
   console.log('conectado ao serviço...');
 }).listen('.novo-servico', function (event) {
   console.log('enviando...');
   window.livewire.emit('render_novo_servico', event);
 }).listen('.novo-log', function (event) {
-  // player.start();
+  player.start();
   console.log('enviando...');
   window.livewire.emit('render_novo_log', event);
 });
