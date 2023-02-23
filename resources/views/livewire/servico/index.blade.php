@@ -1,4 +1,4 @@
-<div wire:poll.900s>
+<div>
 
     @livewire('servico.contador', key('servico.contador'))
     <div class="row">
