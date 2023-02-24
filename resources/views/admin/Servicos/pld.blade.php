@@ -14,22 +14,23 @@
 <body style="
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url({{asset('imgs/fundo.png')}});
+    background-color: #013239;
     ">
 
+    <div class="text-white relative top-0 mr-1 pr-1">
+        <img src="{{asset('imgs/SicoobLogo.png')}}" height="100" width="100" class="rounded img-fluid" alt="...">
+    </div>
+    <div class="mt-2 mb-5">
 
-    <div class="my-5">
         <div class="d-flex justify-content-center align-items-center">
-            <i class="fa-solid fa-robot" style="font-size: 5rem; color: white;"></i>
-        </div>
-        <div class="text-center">
-            <img src="{{asset('imgs/SicoobLogo.png')}}" height="210" width="210" class="rounded img-fluid" alt="...">
+            @livewire('status', key('status'))
         </div>
         <div class="m-0">
             <div class="font-weight-bolder text-sm-center text-white">
                 <p class="text-bold">{{"<>UTI 2023</>"}}</p>
             </div>
         </div>
+
     </div>
     <div class="row m-3">
         <div class="col-md-12">

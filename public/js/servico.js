@@ -30354,6 +30354,9 @@ channel.subscribed(function () {
   playSound('novo-log');
   console.log('enviando novo log...');
   window.livewire.emit('render_novo_log', event);
+}).listen('.novo-status', function (event) {
+  console.log('alterando status...');
+  window.livewire.emit('status', event);
 });
 function playSound(sound) {
   if (sound === 'novo-log') {

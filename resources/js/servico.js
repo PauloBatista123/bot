@@ -24,6 +24,10 @@ channel.subscribed(() => {
     console.log('enviando novo log...');
     window.livewire.emit('render_novo_log', event);
 
+}).listen('.novo-status', (event) => {
+
+    console.log('alterando status...');
+    window.livewire.emit('status', event);
 });
 
 function playSound(sound){

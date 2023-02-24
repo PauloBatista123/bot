@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\NovoLogEvent;
+use App\Events\NovoStatusEvent;
 use App\Models\Log;
 use Exception;
 use Illuminate\Http\Request;

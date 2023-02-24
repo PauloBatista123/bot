@@ -3,6 +3,7 @@
 use App\Http\Controllers\GerenteController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\ServicoController;
+use App\Http\Controllers\StatusController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/log', [LogController::class, 'salvar'])->name('log.salvar');
 Route::post('/servico', [ServicoController::class, 'salvar'])->name('servico.salvar');
 Route::get('/gerentes/{pa}/{nome}', [GerenteController::class, 'show'])->name('gerente.show');
+
+Route::post('/status', [StatusController::class, 'status'])->name('status');
