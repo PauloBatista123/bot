@@ -30340,8 +30340,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var channel = window.Echo.channel('private.servico');
-var success = new Audio("".concat("http://10.54.56.139:8000", "/sounds/success.mp3"));
-var log = new Audio("".concat("http://10.54.56.139:8000", "/sounds/logs.mp3"));
+var success = new Audio("".concat("http://10.54.56.51:8000", "/sounds/success.mp3"));
+var log = new Audio("".concat("http://10.54.56.51:8000", "/sounds/logs.mp3"));
 log.muted = true;
 success.muted = true;
 channel.subscribed(function () {

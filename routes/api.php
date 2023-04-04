@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GerenteController;
+use App\Http\Controllers\CredenciaisController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\ServicoController;
 use App\Http\Controllers\StatusController;
@@ -24,5 +25,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/log', [LogController::class, 'salvar'])->name('log.salvar');
 Route::post('/servico', [ServicoController::class, 'salvar'])->name('servico.salvar');
 Route::get('/gerentes/{pa}/{nome}', [GerenteController::class, 'show'])->name('gerente.show');
-
+Route::get('/credenciais/{plataforma}', [CredenciaisController::class, 'getCredenciais'])->name('credenciais.show');
+Route::post('/credenciais', [CredenciaisController::class, 'createCredenciais'])->name('credenciais.salvar');
 Route::post('/status', [StatusController::class, 'status'])->name('status');
