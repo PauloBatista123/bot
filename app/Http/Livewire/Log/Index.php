@@ -20,7 +20,7 @@ class Index extends Component
 
     public function render()
     {
-        $logs = Log::whereDate('created_at', Carbon::now()->format('Y-m-d'))->orderByDesc('id')->paginate(4);
+        $logs = Log::where('bot', 2)->whereDate('created_at', Carbon::now()->format('Y-m-d'))->orderByDesc('id')->paginate(4);
 
         return view('livewire.log.index', [
             'logs' => $logs

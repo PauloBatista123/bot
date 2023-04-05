@@ -25,7 +25,7 @@ class StatusController extends Controller
                 ]);
             }
 
-            event(new NovoStatusEvent($status));
+            event(new NovoStatusEvent($robo_id));
 
             return response()->json([
                 'error' => false,

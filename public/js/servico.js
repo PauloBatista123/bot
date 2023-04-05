@@ -30340,23 +30340,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var channel = window.Echo.channel('private.servico');
-var success = new Audio("".concat("http://10.54.56.51:8000", "/sounds/success.mp3"));
-var log = new Audio("".concat("http://10.54.56.51:8000", "/sounds/logs.mp3"));
+var success = new Audio("".concat("http://localhost:8000/", "/sounds/success.mp3"));
+var log = new Audio("".concat("http://localhost:8000/", "/sounds/logs.mp3"));
 log.muted = true;
 success.muted = true;
 channel.subscribed(function () {
   console.log('conectado ao serviço...');
 }).listen('.novo-servico', function (event) {
   playSound('novo-servico');
-  console.log('enviando novo serviço...');
-  window.livewire.emit('render_novo_servico', event);
+  switch (event.servico.robo_id) {
+    case 1:
+      window.livewire.emit('render_novo_servico', event);
+      break;
+    case 2:
+      window.livewire.emit('render_novo_servico_seguros', event);
+      break;
+    default:
+      return;
+  }
 }).listen('.novo-log', function (event) {
   playSound('novo-log');
   console.log('enviando novo log...');
-  window.livewire.emit('render_novo_log', event);
+  switch (event.log.bot) {
+    case "1":
+      window.livewire.emit('render_novo_log', event);
+      break;
+    case "2":
+      window.livewire.emit('render_novo_log_seguros', event);
+      break;
+    default:
+      return;
+  }
 }).listen('.novo-status', function (event) {
   console.log('alterando status...');
-  window.livewire.emit('status', event);
+  switch (event.status) {
+    case "1":
+      window.livewire.emit('status', event);
+      break;
+    case "2":
+      window.livewire.emit('status_seguros', event);
+      break;
+    default:
+      return;
+  }
 });
 function playSound(sound) {
   if (sound === 'novo-log') {

@@ -23,7 +23,7 @@
     <div class="mt-2 mb-5">
 
         <div class="d-flex justify-content-center align-items-center">
-            @livewire('status', key('status'))
+            @livewire('seguros.status', key('seguros.status'))
         </div>
         <div class="m-0">
             <div class="font-weight-bolder text-sm-center text-white">
@@ -35,7 +35,7 @@
     <div class="row m-3">
         <div class="col-md-12">
             {{-- livewire --}}
-            @livewire('servico.index', key('servico.index'), ['robo' => 1])
+            @livewire('seguros.index', key('seguros.index'))
         </div>
     </div>
 

@@ -23,6 +23,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/logs', [LogController::class, 'dashboard'])->name('dashboard.index');
     Route::get('/servicos', [ServicoController::class, 'index'])->name('servico.index');
     Route::get('/servicos/pld', [ServicoController::class, 'pld'])->name('servico.pld');
+    Route::get('/servicos/seguros', [ServicoController::class, 'seguros'])->name('servico.seguros');
 
     Route::get('/gerentes', [GerenteController::class, 'index'])->name('gerente.index');
     Route::get('/usuarios', [UserController::class, 'index'])->name('usuarios.index');

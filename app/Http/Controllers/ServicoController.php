@@ -59,4 +59,13 @@ class ServicoController extends Controller
 
         return view('admin.Servicos.pld');
     }
+
+    public function seguros(Request $request)
+    {
+        if($request->user()->cannot('show-servico', 'listar_servico')) {
+            abort(403);
+        }
+
+        return view('admin.Servicos.seguros');
+    }
 }

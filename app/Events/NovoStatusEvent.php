@@ -57,7 +57,7 @@ class NovoStatusEvent implements ShouldBroadcast
     public function broadcastWith()
     {
         return [
-            'status' => $this->status,
+            'robo_id' => $this->status,
         ];
     }
 }

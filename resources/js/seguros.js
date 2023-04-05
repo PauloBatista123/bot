@@ -13,46 +13,21 @@ channel.subscribed(() => {
 
     playSound('novo-servico');
 
-    switch(event.servico.robo_id){
-        case 1:
-            window.livewire.emit('render_novo_servico', event);
-        break;
-        case 2:
-            window.livewire.emit('render_novo_servico_seguros', event);
-        break;
-    default:
-        return;
-    }
+    console.log('enviando novo serviço...');
+    window.livewire.emit('render_novo_servico', event);
+
+
 }).listen('.novo-log', (event) => {
 
     playSound('novo-log');
 
     console.log('enviando novo log...');
-
-    switch(event.log.bot){
-        case "1":
-            window.livewire.emit('render_novo_log', event);
-        break;
-        case "2":
-            window.livewire.emit('render_novo_log_seguros', event);
-        break;
-    default:
-        return;
-    }
+    window.livewire.emit('render_novo_log', event);
 
 }).listen('.novo-status', (event) => {
 
     console.log('alterando status...');
-    switch(event.status){
-        case "1":
-            window.livewire.emit('status', event);
-        break;
-        case "2":
-            window.livewire.emit('status_seguros', event);
-        break;
-    default:
-        return;
-    }
+    window.livewire.emit('status', event);
 });
 
 function playSound(sound){
